@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Footer from './components/Footer';
-
+import BookingPage from './pages/BookingPage';
+// import Footer from './components/Footer';
 
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
@@ -25,17 +26,24 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 dark:bg-zinc-950 text-zinc-600 dark:text-zinc-400 transition-colors duration-300">
-      
-      {/* Navigation Bar */}
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+    <Router>
+      <div className="min-h-screen bg-stone-50 dark:bg-zinc-950 text-zinc-600 dark:text-zinc-400 transition-colors duration-300 flex flex-col justify-between">
+        
+        {/* Navigation Bar */}
+        {/* <Navbar theme={theme} toggleTheme={toggleTheme} /> */}
 
-      {/* Main Home Page */}
-      <Home />
+        {/* Main Content Area handled by Router */}
+        <main className="flex-grow animate-fadeIn">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/book" element={<BookingPage />} />
+          </Routes>
+        </main>
 
-      {/* Footer */}
-      <Footer />
-      
-    </div>
+        {/* Footer */}
+        {/* <Footer /> */}
+        
+      </div>
+    </Router>
   );
 }
