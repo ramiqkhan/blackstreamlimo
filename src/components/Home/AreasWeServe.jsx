@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function AreasWeServe() {
   const serviceAreas = [
@@ -111,22 +112,25 @@ export default function AreasWeServe() {
 
         {/* Global Premium CTA button */}
         <div className="flex justify-center">
-          <button className="px-10 py-4 bg-[#cda250] hover:bg-[#b88f40] text-white dark:text-neutral-950 text-xs font-bold uppercase tracking-[0.25em] rounded shadow-lg shadow-[#cda250]/15 hover:shadow-xl hover:shadow-[#cda250]/20 transition-all duration-300 ease-out flex items-center space-x-3">
-            <span>Book in Your Area</span>
-            <svg
-              className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2.5"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
+         <Link
+  to="/book?bookingType=local"
+  className="px-10 py-4 bg-[#cda250] hover:bg-[#b88f40] text-white dark:text-neutral-950 text-xs font-bold uppercase tracking-[0.25em] rounded shadow-lg shadow-[#cda250]/15 hover:shadow-xl hover:shadow-[#cda250]/20 transition-all duration-300 ease-out flex items-center justify-center space-x-3 cursor-pointer text-center"
+>
+  <span>Book in Your Area</span>
+  <svg
+    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.5"
+      d="M17 8l4 4m0 0l-4 4m4-4H3"
+    />
+  </svg>
+</Link>
         </div>
 
       </div>

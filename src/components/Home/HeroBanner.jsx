@@ -3,17 +3,25 @@ import React from 'react';
 export default function HeroBanner() {
   return (
     <section 
-      className="relative min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-no-repeat"
-      style={{
-        // A premium, dark, cinematic luxury sedan asset from Unsplash
-        backgroundImage: `url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=2000')`,
-      }}
+      className="relative min-h-[90vh] flex items-center justify-center bg-zinc-950 overflow-hidden"
     >
-      {/* Dark tint overlay for high-contrast reading of white/gold text over the luxury vehicle */}
-      <div className="absolute inset-0 bg-black/65 md:bg-black/55" />
+      {/* 1. Cinematic Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+      >
+        <source src="/banner.mp4" type="video/mp4" />
+        {/* Fallback dark color is already handled by the bg-zinc-950 on the section tag */}
+      </video>
 
-      {/* Content Container */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white flex flex-col items-center">
+      {/* 2. Dark Tint Overlay (Increased contrast for video motion) */}
+      <div className="absolute inset-0 bg-black/65 md:bg-black/60 z-10" />
+
+      {/* 3. Content Container */}
+      <div className="relative z-25 max-w-5xl mx-auto px-6 text-center text-white flex flex-col items-center">
         
         {/* Top Accent Sub-header */}
         <span className="text-[#cda250] text-[10px] md:text-xs font-semibold uppercase tracking-[0.35em] mb-6">
@@ -42,7 +50,7 @@ export default function HeroBanner() {
 
         {/* Flat Gold Action Button */}
         <a 
-          href="#booking" 
+          href="/book" 
           className="px-10 py-4 bg-[#cda250] hover:bg-[#b88e3d] text-zinc-950 font-bold tracking-[0.2em] text-xs md:text-sm uppercase transition-colors duration-300 rounded-sm shadow-lg shadow-black/30"
         >
           Book Your Ride

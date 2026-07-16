@@ -1,4 +1,11 @@
 import React from 'react';
+import img3 from '../../assets/cars/img3.jpg';
+import img5 from '../../assets/cars/img5.jpg';
+import img6 from '../../assets/cars/img6.jpg';
+import exs from '../../assets/cars/exsprinter.jpg';
+import shuttle from '../../assets/cars/shuttlesp.jpg';
+import party from '../../assets/cars/party.jpg';
+import { Link } from 'react-router-dom';
 
 export default function FleetSection() {
   const fleet = [
@@ -6,7 +13,7 @@ export default function FleetSection() {
       id: 'escalade',
       name: 'Luxury SUV – Escalade',
       tagline: 'Flagship Premium Comfort',
-      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1000&auto=format&fit=crop',
+      image: img3,
       desc: 'Our flagship Cadillac Escalade offers a bold presence and pristine comfort. Perfect for executive transfers, airport arrivals, and VIP client service.',
       specs: { pax: '6 Passengers', luggage: '5 Bags', class: 'First Class' }
     },
@@ -14,7 +21,7 @@ export default function FleetSection() {
       id: 'stretch-limo',
       name: 'Stretch Limousine',
       tagline: 'Timeless Luxury Statement',
-      image: 'https://images.unsplash.com/photo-1549417229-aa67d3263c09?q=80&w=1000&auto=format&fit=crop',
+      image: img5,
       desc: 'Featuring a custom star-ceiling ambiance, crystal bar, and integrated LED lighting. The ultimate statement for weddings, prom nights, and VIP galas.',
       specs: { pax: '10 Passengers', luggage: '4 Bags', class: 'Ultra Luxury' }
     },
@@ -22,7 +29,7 @@ export default function FleetSection() {
       id: 'limo-sprinter',
       name: 'Limo Sprinter',
       tagline: 'Mobile Lounge Environment',
-      image: 'https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=1000&auto=format&fit=crop',
+      image: img6,
       desc: 'Full-size LED color-changing ceiling, widescreen television array, quilted leather sofa seating, and private cabin configuration for up to 14 guests.',
       specs: { pax: '14 Passengers', luggage: '12 Bags', class: 'Premium VIP' }
     },
@@ -30,7 +37,7 @@ export default function FleetSection() {
       id: 'executive-sprinter',
       name: 'Executive Sprinter',
       tagline: 'Corporate Road-Office',
-      image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1000&auto=format&fit=crop',
+      image: exs,
       desc: 'Equipped with diamond-quilted leather captain seats, worktables, dynamic mood lighting, and USB-C connectivity. Ideal for corporate mobile meetings.',
       specs: { pax: '13 Passengers', luggage: '10 Bags', class: 'Executive' }
     },
@@ -38,7 +45,7 @@ export default function FleetSection() {
       id: 'shuttle-sprinter',
       name: 'Shuttle Sprinter',
       tagline: 'Group Transit Refined',
-      image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop',
+      image: shuttle,
       desc: 'Efficient 14-passenger luxury interior featuring high-back premium leather seats. Designed specifically for corporate retreats and dynamic airport runs.',
       specs: { pax: '14 Passengers', luggage: '14 Bags', class: 'Business Class' }
     },
@@ -46,7 +53,7 @@ export default function FleetSection() {
       id: 'party-bus',
       name: 'Party Bus',
       tagline: 'The Ultimate Celebration',
-      image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1000&auto=format&fit=crop',
+      image: party,
       desc: 'Teal & purple custom LED ceiling panels, premium club sound system, geometric light-up dancefloor, and wraparound leather lounge seating for up to 20 guests.',
       specs: { pax: '20 Passengers', luggage: '15 Bags', class: 'VIP Club Class' }
     }
@@ -132,13 +139,17 @@ export default function FleetSection() {
                   </p>
                 </div>
 
-                {/* Elegant Dynamic Action Button */}
-                <button className="w-full flex items-center justify-center space-x-2 border border-[#cda250]/40 text-[#cda250] group-hover/card:bg-[#cda250] group-hover/card:text-white dark:group-hover/card:text-neutral-950 py-3.5 rounded text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 ease-out">
-                  <span>Book Ride</span>
-                  <svg className="w-4 h-4 transform group-hover/card:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
+          
+
+<Link 
+  href="/book" 
+  className="w-full flex items-center justify-center space-x-2 border border-[#cda250]/40 text-[#cda250] hover:bg-[#cda250] hover:text-neutral-950 group-hover/card:bg-[#cda250] group-hover/card:text-white dark:group-hover/card:text-neutral-950 py-3.5 rounded text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 ease-out text-center"
+>
+  <span>Book Ride</span>
+  <svg className="w-4 h-4 transform group-hover/card:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+  </svg>
+</Link>
               </div>
             </div>
           ))}

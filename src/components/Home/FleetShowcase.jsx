@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import img6 from '../../assets/cars/img6.jpg';
+import exp from '../../assets/cars/exsprinter.jpg';
+import img7 from '../../assets/cars/img7.jpg';
+import exp3 from '../../assets/cars/exp3.jpg';
+
+import img3 from '../../assets/cars/img3.jpg';
+import img8 from '../../assets/cars/img8.jpg';
+import img9 from '../../assets/cars/img9.jpg';
+import img10 from '../../assets/cars/img10.jpg';
 
 export default function FleetShowcase() {
   const showcaseData = [
@@ -7,7 +17,7 @@ export default function FleetShowcase() {
       category: 'Executive Sprinter',
       title: 'Business Class, On the Road',
       tagline: 'The Ultimate Corporate Mobile Command Center',
-      mainImage: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop',
+      mainImage: img6,
       desc: 'Custom-fitted with diamond-quilted leather captain seats, illuminated work tables, and programmable LED mood lighting. Engineered to serve as a seamless extension of your high-profile workspace.',
       features: [
         { title: 'Diamond-Quilted Leather Seating', desc: 'First-class captain chairs with premium custom stitching.' },
@@ -17,10 +27,9 @@ export default function FleetShowcase() {
         { title: 'Up to 14 Passengers', desc: 'Spacious high-roof layout optimized for corporate teams.' }
       ],
       gallery: [
-        'https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=600&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=600&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=600&auto=format&fit=crop'
+        exp,
+        img7,
+        exp3
       ]
     },
     {
@@ -28,7 +37,7 @@ export default function FleetShowcase() {
       category: 'Luxury SUV',
       title: 'First-Class Executive Escort',
       tagline: 'Bold Presence & Uncompromising Privacy',
-      mainImage: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1200&auto=format&fit=crop',
+      mainImage: img10,
       desc: 'Our flagship Cadillac Escalade represents the pinnacle of premium road comfort. Ideal for secure diplomatic transfers, VIP arrivals, and rapid metropolitan travel.',
       features: [
         { title: 'Whisper-Quiet Cabin', desc: 'Advanced active noise cancellation and acoustic-laminated glass.' },
@@ -38,10 +47,10 @@ export default function FleetShowcase() {
         { title: 'Rear Seat Entertainment', desc: 'Dual independent displays with streaming capability and wireless audio.' }
       ],
       gallery: [
-        'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=600&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=600&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=600&auto=format&fit=crop'
+        img8,
+        img9,
+        img10,
+    
       ]
     }
   ];
@@ -173,12 +182,16 @@ export default function FleetShowcase() {
             </div>
 
             {/* Premium CTA Action */}
-            <button className="w-full md:w-auto px-10 py-4 bg-[#cda250] hover:bg-[#b88f40] text-white dark:text-neutral-950 text-xs font-bold uppercase tracking-[0.25em] rounded shadow-lg shadow-[#cda250]/10 hover:shadow-xl transition-all duration-300 ease-out flex items-center justify-center space-x-3 self-start">
-              <span>Book {currentVehicle.category}</span>
-              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
+           <Link 
+  to="/book"
+  state={{ selectedVehicle: currentVehicle }}
+  className="w-full md:w-auto px-10 py-4 bg-[#cda250] hover:bg-[#b88f40] text-white dark:text-neutral-950 text-xs font-bold uppercase tracking-[0.25em] rounded shadow-lg shadow-[#cda250]/10 hover:shadow-xl transition-all duration-300 ease-out flex items-center justify-center space-x-3 self-start text-center cursor-pointer"
+>
+  <span>Book {currentVehicle.category}</span>
+  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+  </svg>
+</Link>
           </div>
 
         </div>

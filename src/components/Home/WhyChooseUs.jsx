@@ -1,4 +1,5 @@
 import React from 'react';
+import ch from '../../assets/cars/ch.jpg'; 
 
 export default function WhyChooseUs() {
   const features = [
@@ -101,7 +102,7 @@ export default function WhyChooseUs() {
               {/* Main Photo (Tall Portrait Architecture / Fleet Mix) */}
               <div className="relative h-[480px] md:h-[620px] w-full overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1200&auto=format&fit=crop" 
+                  src={ch}
                   alt="Elite City Car Service" 
                   className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105 filter brightness-90 dark:brightness-75 contrast-110"
                 />
