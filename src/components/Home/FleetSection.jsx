@@ -55,16 +55,11 @@ export default function FleetSection() {
       tagline: 'The Ultimate Celebration',
       image: party,
       desc: 'Teal & purple custom LED ceiling panels, premium club sound system, geometric light-up dancefloor, and wraparound leather lounge seating for up to 20 guests.',
-      specs: { pax: '20 Passengers', luggage: '15 Bags', class: 'VIP Club Class' }
+      specs: { pax: '14 Passengers', luggage: '15 Bags', class: 'VIP Club Class' }
     }
   ];
 
   return (
-    /* 
-      Top Zinc -> Mid Black -> Bottom Zinc Gradient Flow
-      - Light mode: Fades from light zinc-100, into pure clean white, back to zinc-100.
-      - Dark mode: Fades from deep zinc-950, into absolute rich black, back to zinc-900.
-    */
     <section id="fleet" className="border-t border-b border-zinc-200 dark:border-zinc-900 bg-gradient-to-b from-zinc-100 via-white to-zinc-100 dark:from-zinc-950 dark:via-black dark:to-zinc-900 py-24 text-zinc-800 dark:text-stone-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         
@@ -87,7 +82,6 @@ export default function FleetSection() {
           {fleet.map((vehicle) => (
             <div 
               key={vehicle.id} 
-              /* Deepened internal card backgrounds to pop brilliantly against the pitch-black mid-section */
               className="group/card flex flex-col bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-zinc-900/60 rounded-md overflow-hidden hover:border-[#cda250]/40 dark:hover:border-[#cda250]/40 transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-zinc-300/40 dark:hover:shadow-black/70"
             >
               {/* Image Box */}
@@ -127,8 +121,7 @@ export default function FleetSection() {
                     <div className="w-[1px] h-3 bg-zinc-200 dark:bg-zinc-800" />
                     <div className="flex items-center space-x-1.5">
                       <svg className="w-4 h-4 text-[#cda250]/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m12 0V9a4 4 0 00-8 0v2" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                       </svg>
                       <span>{vehicle.specs.luggage}</span>
                     </div>
@@ -139,17 +132,16 @@ export default function FleetSection() {
                   </p>
                 </div>
 
-          
-
-<Link 
-  href="/book" 
-  className="w-full flex items-center justify-center space-x-2 border border-[#cda250]/40 text-[#cda250] hover:bg-[#cda250] hover:text-neutral-950 group-hover/card:bg-[#cda250] group-hover/card:text-white dark:group-hover/card:text-neutral-950 py-3.5 rounded text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 ease-out text-center"
->
-  <span>Book Ride</span>
-  <svg className="w-4 h-4 transform group-hover/card:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-</Link>
+                {/* Fixed Route Tag Component */}
+                <Link 
+                  to="/book" 
+                  className="w-full flex items-center justify-center space-x-2 border border-[#cda250]/40 text-[#cda250] hover:bg-[#cda250] hover:text-neutral-950 group-hover/card:bg-[#cda250] group-hover/card:text-white dark:group-hover/card:text-neutral-950 py-3.5 rounded text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 ease-out text-center"
+                >
+                  <span>Book Ride</span>
+                  <svg className="w-4 h-4 transform group-hover/card:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
               </div>
             </div>
           ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Clock, Award } from 'lucide-react';
-import img1 from '../../assets/cars/img1.jpg'; 
-import img2 from '../../assets/cars/img2.jpg'; 
+import img1 from '../../assets/cars/esclade(1).jpeg'; 
+import img2 from '../../assets/cars/esclade.jpg'; 
 import img7 from '../../assets/cars/img7.jpg'; 
 
 export default function AboutSection() {
@@ -10,13 +10,11 @@ export default function AboutSection() {
       id="about" 
       className="py-16 md:py-24 lg:py-32 bg-stone-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 overflow-hidden border-b border-zinc-100 dark:border-zinc-900"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-20 items-center">
-        
-        {/* LEFT SIDE: Clean Asymmetric Image Grid */}
+<div className="max-w-[1440px] mx-auto px-5 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-20 items-center">        {/* LEFT SIDE: Clean Asymmetric Image Grid */}
         <div className="lg:col-span-6 flex flex-col gap-4 sm:gap-6 w-full order-2 lg:order-1">
           
           {/* 1. TOP IMAGE: Large Premium Executive SUV */}
-          <div className="w-full h-[180px] sm:h-[260px] lg:h-[300px] overflow-hidden rounded-sm shadow-lg border border-zinc-200 dark:border-zinc-900/60 group">
+          <div className="w-full h-[190px] sm:h-[280px] lg:h-[540px] overflow-hidden rounded-sm shadow-lg border border-zinc-200 dark:border-zinc-900/60 group">
             <img 
               src={img1}
               alt="Premium Black Cadillac Escalade Executive SUV" 
@@ -28,7 +26,7 @@ export default function AboutSection() {
           <div className="grid grid-cols-2 gap-4 sm:gap-6 w-full">
             
             {/* 2. BOTTOM LEFT: Luxury Sprinter / Client Boarding */}
-            <div className="w-full h-[130px] sm:h-[220px] lg:h-[280px] overflow-hidden rounded-sm shadow-lg border border-zinc-200 dark:border-zinc-900/60 group">
+            <div className="w-full h-[130px] sm:h-[220px] lg:h-[300px] overflow-hidden rounded-sm shadow-lg border border-zinc-200 dark:border-zinc-900/60 group">
               <img 
                 src={img2}
                 alt="Elite passengers boarding luxury black transport" 
@@ -37,7 +35,7 @@ export default function AboutSection() {
             </div>
 
             {/* 3. BOTTOM RIGHT: Private Jet Runway Meetup */}
-            <div className="w-full h-[130px] sm:h-[220px] lg:h-[280px] overflow-hidden rounded-sm shadow-lg border border-zinc-200 dark:border-zinc-900/60 group">
+            <div className="w-full h-[130px] sm:h-[220px] lg:h-[300px] overflow-hidden rounded-sm shadow-lg border border-zinc-200 dark:border-zinc-900/60 group">
               <img 
                 src={img7}
                 alt="Chauffeur service waiting next to a private jet on tarmac" 
