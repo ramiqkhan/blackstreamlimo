@@ -1,19 +1,77 @@
-import React from 'react';
-import img3 from '../../assets/cars/img3.jpg';
-import img5 from '../../assets/cars/img5.jpg';
-import img6 from '../../assets/cars/img6.jpg';
-import exs from '../../assets/cars/exsprinter.jpg';
+import React, { useState, useEffect } from 'react';
+import esclade from '../../assets/cars/escladeSUV.jpg';
+import escladeint from '../../assets/cars/escladeint.jpg';
+
+import interior from '../../assets/cars/limointerior.jpeg';
+import strechlimo from '../../assets/cars/strechlimo.webp';
+
+import sprinter from '../../assets/cars/sprinter.jpg';
+import sprinterint from '../../assets/cars/sprinterint.jpg';
+import exsprinter from '../../assets/cars/exsprinterr.jpg';
+import exsprinterint from '../../assets/cars/exsprinterint.jpg';
+
+
 import shuttle from '../../assets/cars/shuttlesp.jpg';
+import shuttleint from '../../assets/cars/shuttleint.jpg';
+
 import party from '../../assets/cars/party.jpg';
+import exparty from '../../assets/cars/partyex.jpg';
+
 import { Link } from 'react-router-dom';
 
+// 1. Isolated Auto-Slider Subcomponent for Performance and Smooth Transitions
+function VehicleImageSlider({ images, altText }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+
+    // Cycle image every 4 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [images]);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {images.map((imgSrc, index) => (
+        <img
+          key={imgSrc}
+          src={imgSrc}
+          alt={`${altText} - view ${index + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out transform group-hover/card:scale-105 ${
+            index === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'
+          }`}
+        />
+      ))}
+      
+      {/* Slide Indicators/Dots */}
+      {images.length > 1 && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-1.5 z-20">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={`h-1 rounded-full transition-all duration-500 ${
+                index === currentIndex ? 'w-4 bg-[#cda250]' : 'w-1.5 bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function FleetSection() {
+  // Update the array to hold multiple image references per car
   const fleet = [
     {
       id: 'escalade',
       name: 'Luxury SUV – Escalade',
       tagline: 'Flagship Premium Comfort',
-      image: img3,
+      images: [esclade, escladeint], // Provide two local image assets here
       desc: 'Our flagship Cadillac Escalade offers a bold presence and pristine comfort. Perfect for executive transfers, airport arrivals, and VIP client service.',
       specs: { pax: '6 Passengers', luggage: '5 Bags', class: 'First Class' }
     },
@@ -21,7 +79,7 @@ export default function FleetSection() {
       id: 'stretch-limo',
       name: 'Stretch Limousine',
       tagline: 'Timeless Luxury Statement',
-      image: img5,
+      images: [strechlimo, interior],
       desc: 'Featuring a custom star-ceiling ambiance, crystal bar, and integrated LED lighting. The ultimate statement for weddings, prom nights, and VIP galas.',
       specs: { pax: '10 Passengers', luggage: '4 Bags', class: 'Ultra Luxury' }
     },
@@ -29,7 +87,7 @@ export default function FleetSection() {
       id: 'limo-sprinter',
       name: 'Limo Sprinter',
       tagline: 'Mobile Lounge Environment',
-      image: img6,
+      images: [sprinter, sprinterint],
       desc: 'Full-size LED color-changing ceiling, widescreen television array, quilted leather sofa seating, and private cabin configuration for up to 14 guests.',
       specs: { pax: '14 Passengers', luggage: '12 Bags', class: 'Premium VIP' }
     },
@@ -37,7 +95,7 @@ export default function FleetSection() {
       id: 'executive-sprinter',
       name: 'Executive Sprinter',
       tagline: 'Corporate Road-Office',
-      image: exs,
+      images: [exsprinter, exsprinterint],
       desc: 'Equipped with diamond-quilted leather captain seats, worktables, dynamic mood lighting, and USB-C connectivity. Ideal for corporate mobile meetings.',
       specs: { pax: '13 Passengers', luggage: '10 Bags', class: 'Executive' }
     },
@@ -45,7 +103,7 @@ export default function FleetSection() {
       id: 'shuttle-sprinter',
       name: 'Shuttle Sprinter',
       tagline: 'Group Transit Refined',
-      image: shuttle,
+      images: [shuttle, shuttleint],
       desc: 'Efficient 14-passenger luxury interior featuring high-back premium leather seats. Designed specifically for corporate retreats and dynamic airport runs.',
       specs: { pax: '14 Passengers', luggage: '14 Bags', class: 'Business Class' }
     },
@@ -53,7 +111,7 @@ export default function FleetSection() {
       id: 'party-bus',
       name: 'Party Bus',
       tagline: 'The Ultimate Celebration',
-      image: party,
+      images: [exparty, party],
       desc: 'Teal & purple custom LED ceiling panels, premium club sound system, geometric light-up dancefloor, and wraparound leather lounge seating for up to 20 guests.',
       specs: { pax: '14 Passengers', luggage: '15 Bags', class: 'VIP Club Class' }
     }
@@ -84,17 +142,13 @@ export default function FleetSection() {
               key={vehicle.id} 
               className="group/card flex flex-col bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-zinc-900/60 rounded-md overflow-hidden hover:border-[#cda250]/40 dark:hover:border-[#cda250]/40 transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-zinc-300/40 dark:hover:shadow-black/70"
             >
-              {/* Image Box */}
-              <div className="relative h-64 w-full overflow-hidden">
-                <img 
-                  src={vehicle.image} 
-                  alt={vehicle.name} 
-                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover/card:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-950 via-transparent to-transparent opacity-90" />
+              {/* Image Box Container with Slider Component */}
+              <div className="relative h-64 w-full overflow-hidden bg-zinc-900">
+                <VehicleImageSlider images={vehicle.images} altText={vehicle.name} />
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-950 via-transparent to-transparent opacity-90 z-10 pointer-events-none" />
                 
                 {/* Float Category/Class Label */}
-                <span className="absolute top-4 right-4 bg-white/95 dark:bg-zinc-950/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-800/80 text-[10px] uppercase tracking-[0.2em] font-semibold px-3 py-1 rounded text-[#cda250]">
+                <span className="absolute top-4 right-4 bg-white/95 dark:bg-zinc-950/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-800/80 text-[10px] uppercase tracking-[0.2em] font-semibold px-3 py-1 rounded text-[#cda250] z-20">
                   {vehicle.specs.class}
                 </span>
               </div>
@@ -132,7 +186,7 @@ export default function FleetSection() {
                   </p>
                 </div>
 
-                {/* Fixed Route Tag Component */}
+                {/* Booking Redirect Button */}
                 <Link 
                   to="/book" 
                   className="w-full flex items-center justify-center space-x-2 border border-[#cda250]/40 text-[#cda250] hover:bg-[#cda250] hover:text-neutral-950 group-hover/card:bg-[#cda250] group-hover/card:text-white dark:group-hover/card:text-neutral-950 py-3.5 rounded text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 ease-out text-center"
