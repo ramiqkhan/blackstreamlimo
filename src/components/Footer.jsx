@@ -73,7 +73,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Mail size={14} className="text-[#d4af37] shrink-0" />
-              <a href="mailto:bookings@blackstreamlimo.com" className="hover:text-[#d4af37] transition-colors">bookings@blackstreamlimo.com</a>
+              <a href="mailto:bookings@blackstreamlimo.com" className="hover:text-[#d4af37] transition-colors">Blackstreamlimo@gmail.com</a>
             </li>
             <li className="flex items-start gap-3">
               <MapPin size={14} className="text-[#d4af37] shrink-0 mt-0.5" />

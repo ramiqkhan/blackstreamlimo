@@ -15,7 +15,7 @@ import shuttle from '../../assets/cars/shuttlesp.jpg';
 import shuttleint from '../../assets/cars/shuttleint.jpg';
 
 import party from '../../assets/cars/party.jpg';
-import exparty from '../../assets/cars/partyex.jpg';
+import exparty from '../../assets/cars/bus.jpg';
 
 import { Link } from 'react-router-dom';
 
@@ -113,7 +113,7 @@ export default function FleetSection() {
       tagline: 'The Ultimate Celebration',
       images: [exparty, party],
       desc: 'Teal & purple custom LED ceiling panels, premium club sound system, geometric light-up dancefloor, and wraparound leather lounge seating for up to 20 guests.',
-      specs: { pax: '14 Passengers', luggage: '15 Bags', class: 'VIP Club Class' }
+      specs: { pax: '20 Passengers', luggage: '15 Bags', class: 'VIP Club Class' }
     }
   ];
 
