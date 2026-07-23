@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import esclade from '../../assets/cars/escladeSUV.jpg';
+import esclade from '../../assets/cars/esc.jpg';
 import escladeint from '../../assets/cars/escladeint.jpg';
 
 import interior from '../../assets/cars/limointerior.jpeg';
@@ -7,11 +7,11 @@ import strechlimo from '../../assets/cars/strechlimo.webp';
 
 import sprinter from '../../assets/cars/sprinter.jpg';
 import sprinterint from '../../assets/cars/sprinterint.jpg';
-import exsprinter from '../../assets/cars/exsprinterr.jpg';
+import exsprinter from '../../assets/cars/exsprinterr.jpeg';
 import exsprinterint from '../../assets/cars/exsprinterint.jpg';
 
 
-import shuttle from '../../assets/cars/shuttlesp.jpg';
+import shuttle from '../../assets/cars/shuttlesp.png';
 import shuttleint from '../../assets/cars/shuttleint.jpg';
 
 import party from '../../assets/cars/party.jpg';
